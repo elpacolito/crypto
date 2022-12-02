@@ -1,5 +1,3 @@
-
-
 def choix ():
 	f=open("ressource/menu.txt",'r').readlines()
 	f = [ f[i][:-1] for i in range (len(f)) ]
@@ -20,7 +18,15 @@ def main ():
 		import mode.filtrage as fi
 		print ('\n------------------\n')
 		fi.filtrage()
-		
+	
+	if (choise == 3 ):
+		import mode.captcha as ca
+		print ('\n------------------\n')
+		ca.captchaDecoder()
+	if (choise == 4 ):
+		import mode.bruteforce as bf
+		print ('\n------------------\n')
+		bf.bfmain()
 	print('\n+---------+\n|task over|\n+---------+\n')
 		 
 		

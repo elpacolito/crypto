@@ -1,3 +1,5 @@
 ajouter un programme
-enlever les espaces 
+enlever les espaces
+Captcha decoder ( en cours )
+bruteforce
 quitter
