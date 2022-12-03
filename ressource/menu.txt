@@ -1,5 +1,7 @@
 ajouter un programme
 enlever les espaces
-Captcha decoder ( en cours )
-bruteforce
+captcha decoder ( en cours )
+bruteforce ( en cours )
+indice of coincidence 
+cesar (en cours )
 quitter

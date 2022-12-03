@@ -18,7 +18,6 @@ def main ():
 		import mode.filtrage as fi
 		print ('\n------------------\n')
 		fi.filtrage()
-	
 	if (choise == 3 ):
 		import mode.captcha as ca
 		print ('\n------------------\n')
@@ -27,6 +26,14 @@ def main ():
 		import mode.bruteforce as bf
 		print ('\n------------------\n')
 		bf.bfmain()
+	if (choise == 5 ):
+		import mode.ioc as ioc
+		print ('\n------------------\n')
+		ioc.ioc()
+	if (choise == 6 ):
+		import mode.cesar as ce
+		print ('\n------------------\n')
+		ce.cesar()
 	print('\n+---------+\n|task over|\n+---------+\n')
 		 
 		
