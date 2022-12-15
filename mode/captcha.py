@@ -1,23 +1,23 @@
-import requests
-import os
-import base64
-import re
-import subprocess
-import urllib
+from PIL import Image
 
 def openFile () :
-	CaptchaFile = input ('Nom du fichier contenant le Captcha : ')
-	CaptchaFile = 'UserFile/'+CaptchaFile
-	Captcha = open (CaptchaFile,'rb').read()
-	#print (Captcha)
-	return base64.b64decode(Captcha.decode('ascii'))
-	
+	img = Image.open("UserFile/test.png")
+	img = img.convert("P")
+	return img 
+
+def withoutNoise (img1)	:
+	img2 = Image.new('P',img1.size,0)
+	temp = []
+	for x in range (img1.size[1]):
+		for y in range (img1.size[0]):
+			pix = img1.getpixel((y,x))
+			if pix not in temp :
+				temp.append(pix)
+			
+	print (temp)
+	#img2.save("UserFile/test2.png") 
+			
 def captchaDecoder () :
-	print ('hello word')
-	Captcha =  openFile()
-	Captcha = Captcha.replace("\n","")
-	Captcha = Captcha.replace("\r","")
-	Captcha = Captcha.replace(" ","")
-	Captcha = Captcha.replace(",","")
-	Captcha = Captcha.replace("_","")
-	print (Captcha)
+	image = openFile()
+	image = withoutNoise(image)
+
