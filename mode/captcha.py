@@ -1,23 +1,14 @@
 from PIL import Image
+import pytesseract
 
 def openFile () :
 	img = Image.open("UserFile/test.png")
-	img = img.convert("P")
+	img = img.convert("L")
 	return img 
-
-def withoutNoise (img1)	:
-	img2 = Image.new('P',img1.size,0)
-	temp = []
-	for x in range (img1.size[1]):
-		for y in range (img1.size[0]):
-			pix = img1.getpixel((y,x))
-			if pix not in temp :
-				temp.append(pix)
-			
-	print (temp)
-	#img2.save("UserFile/test2.png") 
 			
 def captchaDecoder () :
-	image = openFile()
-	image = withoutNoise(image)
-
+	captcha_image = openFile()
+	#image = withoutNoise(image)
+	threshold = captcha_image.point(lambda x: 0 if x < 128 else 255, '1')
+	captcha_text = pytesseract.image_to_string(threshold)
+	print (captcha_text)
